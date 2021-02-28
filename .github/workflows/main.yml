@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2021 Max Reznik <reznikmm@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+on: [push]
+name: Build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and check
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: lace
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v1.1
+        with:
+          args: --root lace lint
+      - name: Build RPM
+        uses: reznikmm/fedora-ada-action@v3
+        with:
+          spec: lace/.copr/lace.spec
