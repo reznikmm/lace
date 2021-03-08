@@ -10,9 +10,9 @@ project Lace is
    type Library_Kind is ("static", "relocatable");
    Library_Type : Library_Kind := external ("LIBRARY_TYPE", "relocatable");
  
-   type Build_Kind is ("dev", "prod", "coverage");
-   Build_Mode : Build_Kind :=
-     external ("lace_BUILD_MODE", external ("BUILD_MODE", "prod"));
+   type Project_Build_Kind is ("dev", "prod", "coverage");
+   Build_Mode : Project_Build_Kind :=
+     external ("LACE_BUILD_MODE", external ("BUILD_MODE", "prod"));
 
    Version := "0.1";
 
