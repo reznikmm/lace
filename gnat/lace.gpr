@@ -4,6 +4,7 @@
 -------------------------------------------------------------
 
 with "matreshka_league";
+with "oasis";
 
 project Lace is
 

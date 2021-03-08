@@ -20,6 +20,8 @@ BuildRequires:   gcc-gnat
 BuildRequires:   fedora-gnat-project-common >= 3
 BuildRequires:   matreshka-devel
 BuildRequires:   gprbuild
+BuildRequires:   gela-devel >= 0.4.0
+BuildRequires:   anagram-devel
 
 # gprbuild only available on these:
 ExclusiveArch: %GPRbuild_arches

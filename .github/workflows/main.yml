@@ -16,7 +16,11 @@ jobs:
         uses: fsfe/reuse-action@v1.1
         with:
           args: --root lace lint
+      - name: Unpack LLVM binding
+        run: |
+          curl https://reznik.fedorapeople.org/llvm_c.tar.gz |
+          tar xvzf - -C lace
       - name: Build RPM
-        uses: reznikmm/fedora-ada-action@v3
+        uses: reznikmm/fedora-ada-action@master
         with:
           spec: lace/.copr/lace.spec

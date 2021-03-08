@@ -4,11 +4,13 @@
 -------------------------------------------------------------
 
 with "lace";
+with "oasis_plain";
 
 project Lace_Run is
 
    for Source_Dirs use
-     ("../source/",
+     ("../source/llvm",
+      "../source/llvm_c",
       "../source/main");
    for Object_Dir use "../.objs";
    for Main use ("lace-run.adb");
@@ -30,6 +32,10 @@ project Lace_Run is
    package Builder is
       for Switches (others) use ("-m");  --  minimum recompilation
    end Builder;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-L/usr/lib/llvm-11/lib", "-lLLVM-11");
+   end Linker;
 
    package Pretty_Printer is
       for Default_Switches ("ada") use
